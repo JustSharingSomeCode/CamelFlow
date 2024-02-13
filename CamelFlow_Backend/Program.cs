@@ -33,7 +33,7 @@ namespace CamelFlow_Backend
             builder.Services.AddTransient<IAuthService, AuthService>();
 
 
-            var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
+            var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>() ?? throw new InvalidOperationException("Unable to find jwt configuration");
 
             builder.Services.AddAuthorization()
                 .AddAuthentication(options =>

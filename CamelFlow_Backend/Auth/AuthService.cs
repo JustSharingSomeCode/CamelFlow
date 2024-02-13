@@ -1,16 +1,9 @@
-﻿using Azure.Core;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using Microsoft.IdentityModel.Protocols;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using CamelFlow_Backend.Data;
-using CamelFlow_Backend.Data.Models;
-using Microsoft.EntityFrameworkCore;
 using CamelFlow_Backend.ModelDto;
 
 namespace CamelFlow_Backend.Auth
@@ -19,13 +12,11 @@ namespace CamelFlow_Backend.Auth
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly JwtSettings _jwtSettings;
-        private readonly ApplicationDbContext _context;
 
-        public AuthService(UserManager<IdentityUser> userManager, IOptionsSnapshot<JwtSettings> jwtSettings, ApplicationDbContext context)
+        public AuthService(UserManager<IdentityUser> userManager, IOptionsSnapshot<JwtSettings> jwtSettings)
         {
             _userManager = userManager;
             _jwtSettings = jwtSettings.Value;
-            _context = context;
         }
 
         public async Task<string> Login(LoginModel model)
@@ -78,10 +69,10 @@ namespace CamelFlow_Backend.Auth
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                new(ClaimTypes.Name, user.UserName),
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new(ClaimTypes.NameIdentifier, user.Id.ToString())
             };
 
             var roleClaims = roles.Select(r => new Claim(ClaimTypes.Role, r));

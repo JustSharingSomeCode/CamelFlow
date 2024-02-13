@@ -11,16 +11,14 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CamelFlow_Backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private IAuthService _authService;
+        private readonly IAuthService _authService;
 
-        public AuthController(UserManager<IdentityUser> userManager, IAuthService authService)
+        public AuthController(IAuthService authService)
         {
-            _userManager = userManager;
             _authService = authService;
         }
 
