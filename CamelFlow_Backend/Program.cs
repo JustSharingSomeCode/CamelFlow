@@ -1,6 +1,6 @@
-
-using CamelFlow_Backend.Auth;
 using CamelFlow_Backend.Data;
+using CamelFlow_Backend.Implementations.Auth;
+using CamelFlow_Backend.Interfaces.Auth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

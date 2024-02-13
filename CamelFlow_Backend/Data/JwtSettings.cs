@@ -1,4 +1,4 @@
-﻿namespace CamelFlow_Backend.Auth
+﻿namespace CamelFlow_Backend.Data
 {
     public class JwtSettings
     {

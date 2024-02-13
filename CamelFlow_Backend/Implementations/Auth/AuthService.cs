@@ -4,9 +4,11 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using CamelFlow_Backend.ModelDto;
+using CamelFlow_Backend.Interfaces.Auth;
+using CamelFlow_Backend.Dtos.Request.Auth;
+using CamelFlow_Backend.Data;
 
-namespace CamelFlow_Backend.Auth
+namespace CamelFlow_Backend.Implementations.Auth
 {
     public class AuthService : IAuthService
     {

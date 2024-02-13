@@ -1,7 +1,7 @@
-﻿using CamelFlow_Backend.ModelDto;
+﻿using CamelFlow_Backend.Dtos.Request.Auth;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CamelFlow_Backend.Auth
+namespace CamelFlow_Backend.Interfaces.Auth
 {
     public interface IAuthService
     {

@@ -5,9 +5,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System;
-using CamelFlow_Backend.Auth;
-using CamelFlow_Backend.ModelDto;
 using Microsoft.AspNetCore.Identity;
+using CamelFlow_Backend.Interfaces.Auth;
+using CamelFlow_Backend.Dtos.Request.Auth;
 
 namespace CamelFlow_Backend.Controllers
 {

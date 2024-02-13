@@ -1,6 +1,6 @@
-﻿namespace CamelFlow_Backend.ModelDto
+﻿namespace CamelFlow_Backend.Dtos.Request.Auth
 {
-    public class RegisterModel
+    public class LoginModel
     {
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
